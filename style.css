@@ -1,0 +1,25 @@
+
+
+
+   h2 {
+     color:black;
+   }
+
+   h4 {
+     font-size: 16px;
+     padding-top: 0px;
+   }
+
+   #searchTerm:focus {
+     border-bottom: 1px solid #29b6f6;
+     box-shadow: 0 1px 0 0 #29b6f6;
+   }
+
+   #logo{
+     padding-top: 50px;
+   }
+
+   #searchTerm[type="text"]
+{
+    font-size:28px;
+}

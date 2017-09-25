@@ -9,6 +9,8 @@ $(document).ready(function(){
         //API url
         var url = "http://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm + "&format-json&callback=?";
 
+        var liResults = [];
+
         $.ajax({
           type:"GET",
           url:url,
@@ -25,8 +27,14 @@ $(document).ready(function(){
             $('#output').html('');
 
             for(var i=0;i < data[1].length;i++) {
-              $('#output').prepend("<li><a href=" + data[3][i] + ">" + data[1][i] + "</a><p>" + data[2][i] + "</p></li>");
+              liResults[i] = "<li><a href=" + data[3][i] + ">" + data[1][i] + "</a><p>" + data[2][i] + "</p></li>";
+
+              $('#output').prepend(liResults[i]);
             }
+
+            $("li").addClass("card-panel");
+
+
 
           },
           error: function(errorMessage) {
@@ -34,5 +42,17 @@ $(document).ready(function(){
           }
         });
 
+
+
+
     });
+
+
+
+    $("#searchTerm").keypress(function(e) {
+      if(e.which==13) {
+        $("#search").click();
+      }
+    });
+
 });
